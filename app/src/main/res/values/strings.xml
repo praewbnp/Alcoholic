@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Alcoholic</string>
+    <string name="text">~ Order List ~</string>
+    <string name="btn">RANDOM!</string>
 </resources>
