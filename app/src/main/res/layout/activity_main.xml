@@ -5,15 +5,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.preawbnp.alcoholic.MainActivity">
+    tools:context="com.example.preawbnp.alcoholic.MainActivity"
+    android:background="#5a3a1e" >
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="68dp"
+        android:layout_above="@+id/bull"
+        android:layout_alignParentEnd="true" />
     <Button
         android:id="@+id/bull"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:onClick="goToRandomActivity"
-        android:text="START"/>
+        android:text="START"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="136dp"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView"
+        android:background="#ffaa05"
+        android:textSize="26sp"
+        android:textColor="#ffffff"/>
 
     <!--<Button-->
         <!--android:id="@+id/btnPay"-->
