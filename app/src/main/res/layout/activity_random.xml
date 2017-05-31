@@ -4,21 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.preawbnp.alcoholic.RandomActivity">
+    tools:context="com.example.preawbnp.alcoholic.RandomActivity"
+    android:background="#5a3a1e" >
+
+    <ImageView
+        android:id="@+id/logoHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mainlogo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="9dp" />
+
+    <TextView
+        android:id="@+id/textBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBalance"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:layout_below="@+id/logoHeader"
+        android:layout_alignStart="@+id/textRandom" />
+
+    <TextView
+        android:id="@+id/textCalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textCal"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:layout_below="@+id/textBalance"
+        android:layout_alignStart="@+id/textBalance" />
 
     <TextView
         android:id="@+id/textRandom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/text" />
+        android:text="@string/textRandom"
+        android:textColor="#ffffff"
+        android:textSize="25sp"
+        android:layout_marginTop="122dp"
+        android:layout_below="@+id/logoHeader"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/btnRandom"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:text="RANDOM!"
+        android:textColor="#ffffff"
+        android:textSize="23sp"
+        android:background="#ffaa05"
+        android:layout_marginTop="33dp"
         android:layout_below="@+id/textRandom"
-        android:layout_centerHorizontal="true"
-        android:text="@string/btn"/>
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/btnGiveUp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="GIVE UP"
+        android:textColor="#ffffff"
+        android:textSize="23sp"
+        android:background="#45a7b3"
+        android:layout_below="@+id/btnRandom"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
