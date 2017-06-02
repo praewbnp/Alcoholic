@@ -11,23 +11,25 @@ import java.util.Random;
 
 public class RandomActivity extends AppCompatActivity {
     private int giveup = 0;
-    private int cal = 0;
-    private int balance = 0;
+    private int calories = 0;
+    private int commonPurse = 0;
+    int x;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random);
 
-        final String[] orderList = {"ซดโค้กครึ่งแก้ว","จ่ายค่าเหล้า 20 บาท","เพียว 1 ฝา","รอดตัวไป","คนข้างขวาโดน 1 ช็อต",
+        final String[] orderList = {"ดื่มโค้กครึ่งแก้ว","จ่ายค่าเหล้า 20 บาท","เพียว 1 ฝา","รอดตัวไป","คนข้างขวาโดน 1 ช็อต",
                                     "คนข้างซ้ายโดน 1 ช็อต", "เพียว 5 วินาที", "จ่ายค่าเหล้า 100 บาท", "หมดแก้วทั้งวง", "ได้พัก 2 ตา",
-                                    "จูบโต๊ะสองที","ให้คนข้างขวาสั่งอะไรก็ได้","ให้คนข้างซ้ายสั่งอะไรก็ได้","ยกเพียว 10 วินาที","เลือกคนมากินแทน 1 คน",
+                                    "จูบโต๊ะสองที","ให้คนข้างขวาสั่งอะไรก็ได้","ให้คนข้างซ้ายสั่งอะไรก็ได้","ยกเพียว 10 วินาที","เลือกคนมากินเพียว 5 วิแทน 1 คน",
                                     "BATTLE กับคนตรงข้าม", "ซดน้ำเปล่า 1 แก้ว", "ซดโค้ก 1 แก้ว", "ข้ามคนต่อไปไป", "ย้อนกลับไปทางเดิม"};
         final TextView balanceText = (TextView) findViewById(R.id.textBalance);
         final TextView caloriesText = (TextView) findViewById(R.id.textCalories);
         final TextView randomText = (TextView) findViewById(R.id.textRandom);
 
         Button randomBtn = (Button) findViewById(R.id.btnRandom);
+        Button doBtn = (Button) findViewById(R.id.btnDo);
         Button giveupBtn = (Button) findViewById(R.id.btnGiveUp);
         Button startBtn = (Button) findViewById(R.id.btnStart);
 
@@ -37,24 +39,12 @@ public class RandomActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Random randomNext = new Random();
                 int index = randomNext.nextInt(20);
+                setIndex(index);
 
-                randomText.setText(orderList[index] + " : " + index);
-                switch (index) {
-                    case 0:
-                        cal += 50;
-                        break;
-                    case 1:
-                        balance += 20;
-                        break;
-                    case 2:
-                        cal += 65;
-                        break;
-                    case 4:
-                        cal += 65;
-                        break;
-                }
-                balanceText.setText("COMMON FURSE: " + balance);
-                caloriesText.setText("CALORIES: " + cal);
+                randomText.setText(orderList[index] + "_" + index);
+
+                balanceText.setText("COMMON FURSE: " + commonPurse);
+                caloriesText.setText("ALL CALORIES: " + calories);
 //                if (orderList[index].equals("\"เพียว 5 วินาที\"")) {
 //                    final Button startBtn = (Button) findViewById(R.id.btnStart);
 //                    startBtn.setOnClickListener(new View.OnClickListener() {
@@ -68,12 +58,60 @@ public class RandomActivity extends AppCompatActivity {
             }
         });
 
+        doBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int index = getIndex();
+                switch (index) {
+                    case 0:
+                        calories += 120;
+                        break;
+                    case 1:
+                        commonPurse += 20;
+                        break;
+                    case 2: case 4: case 5: case 6: case 14:
+                        calories += 90;
+                        break;
+                    case 7:
+                        commonPurse += 100;
+                        break;
+                    case 8:
+                        calories += (90+120);
+                        break;
+                    case 13:
+                        calories += 180;
+                        break;
+                    case 15:
+                        calories -= 50;
+                        break;
+                    case 16:
+                        calories += 0;
+                        break;
+                    case 17:
+                        calories += 240;
+                        break;
+                    case 3: case 9: case 10: case 11: case 12: case 18: case 19:
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
         giveupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 giveup++;
-                balanceText.setText("COMMON FURSE: " + (giveup * 50));
+                balanceText.setText("COMMON FURSE: " + commonPurse + (giveup * 50));
             }
         });
+    }
+
+    public void setIndex(int x) {
+        this.x = x;
+    }
+
+    public int getIndex(){
+      return x;
     }
 }

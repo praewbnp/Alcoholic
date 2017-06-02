@@ -44,7 +44,7 @@
         android:text="@string/textRandom"
         android:textColor="#ffffff"
         android:textSize="25sp"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="39dp"
         android:layout_below="@+id/textCalories"
         android:layout_centerHorizontal="true" />
 
@@ -52,7 +52,7 @@
         android:id="@+id/btnRandom"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="RANDOM!"
+        android:text="RANDOM"
         android:textColor="#ffffff"
         android:textSize="23sp"
         android:background="#ffaa05"
@@ -61,26 +61,40 @@
         android:layout_alignParentStart="true" />
 
     <Button
+        android:id="@+id/btnDo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DO"
+        android:textColor="#ffffff"
+        android:textSize="23sp"
+        android:background="#3bb08f"
+        android:layout_below="@+id/btnRandom"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
         android:id="@+id/btnGiveUp"
-        android:layout_width="fill_parent"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:text="GIVE UP"
         android:textColor="#ffffff"
         android:textSize="23sp"
-        android:background="#45a7b3"
-        android:layout_below="@+id/btnRandom"
-        android:layout_alignParentStart="true" />
+        android:background="#e83333"
+        android:layout_below="@+id/btnDo"
+        android:layout_alignEnd="@+id/btnDo" />
 
     <Button
         android:id="@+id/btnStart"
-        android:layout_width="300px"
-        android:layout_height="150px"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:textColor="#ffffff"
         android:textSize="23sp"
-        android:background="#e83333"
+        android:background="#5a3a1e"
         android:text="@string/countdown"
-        android:layout_marginTop="32dp"
+        android:layout_marginLeft="10px"
+        android:layout_marginRight="10px"
         android:layout_below="@+id/btnGiveUp"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp" />
 
 </RelativeLayout>
