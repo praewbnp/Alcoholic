@@ -10,10 +10,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class RandomActivity extends AppCompatActivity {
-    private int giveup = 0;
     private int calories = 0;
     private int commonPurse = 0;
-    private int x;
+    private int order;
+
+    Button randomBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,27 +29,26 @@ public class RandomActivity extends AppCompatActivity {
         final TextView caloriesText = (TextView) findViewById(R.id.textCalories);
         final TextView randomText = (TextView) findViewById(R.id.textRandom);
 
-        Button randomBtn = (Button) findViewById(R.id.btnRandom);
+        randomBtn = (Button) findViewById(R.id.btnRandom);
         Button doBtn = (Button) findViewById(R.id.btnDo);
         Button giveupBtn = (Button) findViewById(R.id.btnGiveUp);
-//        Button startBtn = (Button) findViewById(R.id.btnStart);
 
         randomBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Random randomNext = new Random();
-                int index = randomNext.nextInt(20);
-                x = index;
+                    Random randomNext = new Random();
+                    int index = randomNext.nextInt(20);
+                    order = index;
 
-                randomText.setText(orderList[index] + "_" + index);
+                    randomText.setText(orderList[index] + "_" + index);
             }
         });
 
         doBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (x) {
+                switch (order) {
                     case 0:
                         calories += 120;
                         break;
@@ -81,16 +81,29 @@ public class RandomActivity extends AppCompatActivity {
                     default:
                         break;
                 }
+
+                balanceText.setText("COMMON FURSE: " + commonPurse);
+                caloriesText.setText("ALL CALORIES: " + calories);
+                randomText.setText("กดเพื่อ Random สิ!");
             }
         });
 
         giveupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                giveup++;
                 commonPurse += 50;
                 balanceText.setText("COMMON FURSE: " + commonPurse);
+                randomText.setText("กดเพื่อ Random สิ!");
             }
         });
+    }
+
+    public void setColorRandomBtn(){
+        randomBtn.setBackgroundColor(0xffaa05);
+        randomBtn.setTextColor(0xffffff);
+    }
+    public void setNoneRandomBtn(){
+        randomBtn.setBackgroundColor(0x5a3a1e);
+        randomBtn.setTextColor(0x5a3a1e);
     }
 }

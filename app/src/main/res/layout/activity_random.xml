@@ -64,7 +64,7 @@
         android:id="@+id/btnDo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DO"
+        android:text="@string/textDo"
         android:textColor="#ffffff"
         android:textSize="23sp"
         android:background="#3bb08f"

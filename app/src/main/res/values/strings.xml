@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Alcoholic</string>
     <string name="textRandom">กดเพื่อ Random สิ!</string>
-    <string name="textBalance">COMMON FURSE: </string>
-    <string name="textCal">ALL CALORIES: </string>
+    <string name="textBalance">COMMON FURSE: 0</string>
+    <string name="textCal">ALL CALORIES: 0</string>
     <string name="countdown">START</string>
+
+    <string name="textDo">DO </string>
 </resources>
