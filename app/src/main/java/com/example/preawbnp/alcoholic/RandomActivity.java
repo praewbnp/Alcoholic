@@ -13,7 +13,7 @@ public class RandomActivity extends AppCompatActivity {
     private int giveup = 0;
     private int calories = 0;
     private int commonPurse = 0;
-    int x;
+    private int x;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class RandomActivity extends AppCompatActivity {
         Button randomBtn = (Button) findViewById(R.id.btnRandom);
         Button doBtn = (Button) findViewById(R.id.btnDo);
         Button giveupBtn = (Button) findViewById(R.id.btnGiveUp);
-        Button startBtn = (Button) findViewById(R.id.btnStart);
+//        Button startBtn = (Button) findViewById(R.id.btnStart);
 
         randomBtn.setOnClickListener(new View.OnClickListener() {
 
@@ -39,30 +39,16 @@ public class RandomActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Random randomNext = new Random();
                 int index = randomNext.nextInt(20);
-                setIndex(index);
+                x = index;
 
                 randomText.setText(orderList[index] + "_" + index);
-
-                balanceText.setText("COMMON FURSE: " + commonPurse);
-                caloriesText.setText("ALL CALORIES: " + calories);
-//                if (orderList[index].equals("\"เพียว 5 วินาที\"")) {
-//                    final Button startBtn = (Button) findViewById(R.id.btnStart);
-//                    startBtn.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            startBtn.setText("5");
-//                        }
-//                    });
-//                }
-
             }
         });
 
         doBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int index = getIndex();
-                switch (index) {
+                switch (x) {
                     case 0:
                         calories += 120;
                         break;
@@ -102,16 +88,9 @@ public class RandomActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 giveup++;
-                balanceText.setText("COMMON FURSE: " + commonPurse + (giveup * 50));
+                commonPurse += 50;
+                balanceText.setText("COMMON FURSE: " + commonPurse);
             }
         });
-    }
-
-    public void setIndex(int x) {
-        this.x = x;
-    }
-
-    public int getIndex(){
-      return x;
     }
 }
