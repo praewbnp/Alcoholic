@@ -15,6 +15,8 @@ public class RandomActivity extends AppCompatActivity {
     private int order;
 
     Button randomBtn;
+    Button doBtn;
+    Button giveupBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +32,11 @@ public class RandomActivity extends AppCompatActivity {
         final TextView randomText = (TextView) findViewById(R.id.textRandom);
 
         randomBtn = (Button) findViewById(R.id.btnRandom);
-        Button doBtn = (Button) findViewById(R.id.btnDo);
-        Button giveupBtn = (Button) findViewById(R.id.btnGiveUp);
+        doBtn = (Button) findViewById(R.id.btnDo);
+        giveupBtn = (Button) findViewById(R.id.btnGiveUp);
+
+        doBtn.setVisibility(View.INVISIBLE);
+        giveupBtn.setVisibility(View.INVISIBLE);
 
         randomBtn.setOnClickListener(new View.OnClickListener() {
 
@@ -41,7 +46,10 @@ public class RandomActivity extends AppCompatActivity {
                     int index = randomNext.nextInt(20);
                     order = index;
 
-                    randomText.setText(orderList[index] + "_" + index);
+                randomText.setText(orderList[index]);
+                randomBtn.setVisibility(View.INVISIBLE);
+                doBtn.setVisibility(View.VISIBLE);
+                giveupBtn.setVisibility(View.VISIBLE);
             }
         });
 
@@ -85,6 +93,9 @@ public class RandomActivity extends AppCompatActivity {
                 balanceText.setText("COMMON FURSE: " + commonPurse);
                 caloriesText.setText("ALL CALORIES: " + calories);
                 randomText.setText("กดเพื่อ Random สิ!");
+                randomBtn.setVisibility(View.VISIBLE);
+                doBtn.setVisibility(View.INVISIBLE);
+                giveupBtn.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -94,16 +105,10 @@ public class RandomActivity extends AppCompatActivity {
                 commonPurse += 50;
                 balanceText.setText("COMMON FURSE: " + commonPurse);
                 randomText.setText("กดเพื่อ Random สิ!");
+                randomBtn.setVisibility(View.VISIBLE);
+                doBtn.setVisibility(View.INVISIBLE);
+                giveupBtn.setVisibility(View.INVISIBLE);
             }
         });
-    }
-
-    public void setColorRandomBtn(){
-        randomBtn.setBackgroundColor(0xffaa05);
-        randomBtn.setTextColor(0xffffff);
-    }
-    public void setNoneRandomBtn(){
-        randomBtn.setBackgroundColor(0x5a3a1e);
-        randomBtn.setTextColor(0x5a3a1e);
     }
 }

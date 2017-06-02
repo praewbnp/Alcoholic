@@ -83,18 +83,18 @@
         android:layout_below="@+id/btnDo"
         android:layout_alignEnd="@+id/btnDo" />
 
-    <Button
-        android:id="@+id/btnStart"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:textSize="23sp"
-        android:background="#5a3a1e"
-        android:text="@string/countdown"
-        android:layout_marginLeft="10px"
-        android:layout_marginRight="10px"
-        android:layout_below="@+id/btnGiveUp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp" />
+    <!--<Button-->
+        <!--android:id="@+id/btnStart"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textSize="23sp"-->
+        <!--android:background="#5a3a1e"-->
+        <!--android:text="@string/countdown"-->
+        <!--android:layout_marginLeft="10px"-->
+        <!--android:layout_marginRight="10px"-->
+        <!--android:layout_below="@+id/btnGiveUp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="17dp" />-->
 
 </RelativeLayout>
