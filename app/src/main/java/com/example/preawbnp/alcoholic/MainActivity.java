@@ -15,17 +15,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bull = (Button) findViewById(R.id.bull);
-        bull.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(MainActivity.this, RandomActivity.class);
-                startActivity(intent1);
-            }
-        });
+//        bull.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent1 = new Intent(MainActivity.this, RandomActivity.class);
+//                startActivity(intent1);
+//            }
+//        });
     }
 
     public void goToRandomActivity(View view){
         Intent intent = new Intent(this, RandomActivity.class);
         startActivity(intent);
     }
+
+
 }

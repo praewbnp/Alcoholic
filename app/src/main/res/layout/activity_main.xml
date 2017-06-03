@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     tools:context="com.example.preawbnp.alcoholic.MainActivity"
     android:background="#5a3a1e" >
 
@@ -16,12 +17,13 @@
         android:layout_marginBottom="24dp"
         android:layout_marginEnd="68dp"
         android:layout_above="@+id/bull"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        />
+
     <Button
         android:id="@+id/bull"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="goToRandomActivity"
         android:text="START"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="136dp"
@@ -29,13 +31,8 @@
         android:layout_alignEnd="@+id/logo"
         android:background="#ffaa05"
         android:textSize="26sp"
-        android:textColor="#ffffff"/>
-
-    <!--<Button-->
-        <!--android:id="@+id/btnPay"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_centerInParent="true"-->
-        <!--/>-->
+        android:textColor="#ffffff"
+        android:onClick="goToRandomActivity"
+        />
 
 </RelativeLayout>
