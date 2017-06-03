@@ -1,4 +1,4 @@
-package com.example.preawbnp.alcoholic;
+package com.example.preawbnp.alcoholic.random;
 
 /**
  * Created by preawbnp on 6/3/2017 AD.
