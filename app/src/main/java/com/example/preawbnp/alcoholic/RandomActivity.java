@@ -108,10 +108,15 @@ public class RandomActivity extends AppCompatActivity implements RandomView {
         commonPurseText.setText("COMMON FURSE: " + commonPurse);
     }
 
-    public void randomClick(View view) {
+    public int randomOrder(){
         Random randomNext = new Random();
         int index = randomNext.nextInt(22);
         orderIndex = index;
+        return index;
+    }
+
+    public void randomClick(View view) {
+        int index = randomOrder();
 
         setOrder(orderRopository.getIndex(index).getOrder());
         randomBtn.setVisibility(View.INVISIBLE);
