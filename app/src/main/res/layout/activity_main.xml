@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context="com.example.preawbnp.alcoholic.MainActivity"
+    tools:context="com.example.preawbnp.alcoholic.main.MainActivity"
     android:background="#5a3a1e" >
 
     <ImageView
@@ -14,25 +14,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/logo"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="68dp"
-        android:layout_above="@+id/startBtn"
-        android:layout_alignParentEnd="true"
-        />
+        android:layout_marginBottom="14dp"
+        android:layout_above="@+id/btnStart"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/btnStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="START"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="136dp"
-        android:layout_alignStart="@+id/logo"
-        android:layout_alignEnd="@+id/logo"
         android:background="#ffaa05"
         android:textSize="26sp"
         android:textColor="#ffffff"
         android:onClick="goToRandomActivity"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/logo"
+        android:layout_alignStart="@+id/logo" />
 
 </RelativeLayout>

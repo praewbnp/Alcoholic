@@ -1,4 +1,4 @@
-package com.example.preawbnp.alcoholic;
+package com.example.preawbnp.alcoholic.random;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,19 +6,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.preawbnp.alcoholic.R;
 import com.example.preawbnp.alcoholic.data.OrderRepository;
-
-import java.util.Random;
 
 public class RandomActivity extends AppCompatActivity implements RandomView {
     private final String COMMONPURSE_STATE_KEY = "com.example.preawbnp.Alcoholic.COMMONPURSE_STATE_KEY";
     private final String CALORIES_STATE_KEY = "com.example.preawbnp.Alcoholic.CALORIES_STATE_KEY";
+
     private RandomPresenter presenter;
     private OrderRepository orderRopository;
-
-    private int calories = 0;
-    private int commonPurse = 0;
-    private int orderIndex;
+    private int calories = 0, commonPurse = 0, index;
 
     TextView commonPurseText, caloriesText, orderText;
     Button randomBtn, doBtn, giveupBtn;
@@ -37,6 +34,8 @@ public class RandomActivity extends AppCompatActivity implements RandomView {
         }
 
         orderRopository = OrderRepository.getInstance();
+        presenter = new RandomPresenter(orderRopository, this);
+
         initViewHolders();
     }
 
@@ -109,15 +108,8 @@ public class RandomActivity extends AppCompatActivity implements RandomView {
         commonPurseText.setText("COMMON FURSE: " + commonPurse);
     }
 
-    public int randomOrder(){
-        Random randomNext = new Random();
-        int index = randomNext.nextInt(22);
-        orderIndex = index;
-        return index;
-    }
-
     public void randomClick(View view) {
-        int index = randomOrder();
+        index = presenter.randomOrder();
 
         setOrder(orderRopository.getIndex(index).getOrder());
         randomBtn.setVisibility(View.INVISIBLE);
@@ -126,16 +118,15 @@ public class RandomActivity extends AppCompatActivity implements RandomView {
     }
 
     public void doClick(View view) {
-        commonPurse += orderRopository.getIndex(orderIndex).getCommonPurse();
-        calories += orderRopository.getIndex(orderIndex).getCalories();
-
+        commonPurse += presenter.updateCommonPurse();
+        calories += presenter.updateCalories();
         setCommonPurse(commonPurse);
         setCalories(calories);
         setAfterClickAns();
     }
 
     public void giveupClick(View view) {
-        commonPurse += 50;
+        commonPurse += presenter.updateGiveup();
         setCommonPurse(commonPurse);
         setAfterClickAns();
     }
