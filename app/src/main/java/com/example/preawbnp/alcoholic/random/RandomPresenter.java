@@ -8,7 +8,7 @@ import java.util.Random;
  * Created by preawbnp on 6/3/2017 AD.
  */
 
-class RandomPresenter {
+public class RandomPresenter {
     private OrderRepository orderRopository;
     private RandomView view;
 
@@ -26,16 +26,21 @@ class RandomPresenter {
         return index;
     }
 
-    public int updateCommonPurse(){
+    public int getValueCommonPurse(){
         return orderRopository.getIndex(orderIndex).getCommonPurse();
     }
 
-    public int updateCalories(){
+    public int getValueCalories(){
         return orderRopository.getIndex(orderIndex).getCalories();
     }
 
-    public int updateGiveup(){
+    public int getValueGiveup(){
         return 50;
     }
+
+    public int getRandomIndex(int orderIndex){
+        return orderIndex;
+    }
+
 
 }

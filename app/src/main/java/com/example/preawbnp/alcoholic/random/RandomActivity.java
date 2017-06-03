@@ -118,15 +118,15 @@ public class RandomActivity extends AppCompatActivity implements RandomView {
     }
 
     public void doClick(View view) {
-        commonPurse += presenter.updateCommonPurse();
-        calories += presenter.updateCalories();
+        commonPurse += presenter.getValueCommonPurse();
+        calories += presenter.getValueCalories();
         setCommonPurse(commonPurse);
         setCalories(calories);
         setAfterClickAns();
     }
 
     public void giveupClick(View view) {
-        commonPurse += presenter.updateGiveup();
+        commonPurse += presenter.getValueGiveup();
         setCommonPurse(commonPurse);
         setAfterClickAns();
     }
