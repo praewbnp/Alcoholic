@@ -16,12 +16,12 @@
         android:src="@drawable/logo"
         android:layout_marginBottom="24dp"
         android:layout_marginEnd="68dp"
-        android:layout_above="@+id/bull"
+        android:layout_above="@+id/startBtn"
         android:layout_alignParentEnd="true"
         />
 
     <Button
-        android:id="@+id/bull"
+        android:id="@+id/btnStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="START"

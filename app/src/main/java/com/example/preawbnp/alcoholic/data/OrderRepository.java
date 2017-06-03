@@ -1,8 +1,6 @@
-package com.example.preawbnp.alcoholic;
+package com.example.preawbnp.alcoholic.data;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by preawbnp on 6/3/2017 AD.
