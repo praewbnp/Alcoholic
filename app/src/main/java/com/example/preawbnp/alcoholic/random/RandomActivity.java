@@ -8,11 +8,13 @@ import android.widget.TextView;
 
 import com.example.preawbnp.alcoholic.R;
 import com.example.preawbnp.alcoholic.data.OrderRepository;
+import com.example.preawbnp.alcoholic.data.User;
 
 public class RandomActivity extends AppCompatActivity implements RandomView {
     private final String COMMONPURSE_STATE_KEY = "com.example.preawbnp.Alcoholic.COMMONPURSE_STATE_KEY";
     private final String CALORIES_STATE_KEY = "com.example.preawbnp.Alcoholic.CALORIES_STATE_KEY";
 
+    private User user;
     private RandomPresenter presenter;
     private OrderRepository orderRopository;
     private int calories = 0, commonPurse = 0, index;
@@ -25,6 +27,7 @@ public class RandomActivity extends AppCompatActivity implements RandomView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random);
 
+
         if (savedInstanceState != null){
             commonPurse = savedInstanceState.getInt(COMMONPURSE_STATE_KEY, 0);
             calories = savedInstanceState.getInt(CALORIES_STATE_KEY, 0);
@@ -34,7 +37,8 @@ public class RandomActivity extends AppCompatActivity implements RandomView {
         }
 
         orderRopository = OrderRepository.getInstance();
-        presenter = new RandomPresenter(orderRopository, this);
+        user = new User(orderRopository);
+        presenter = new RandomPresenter(user.getOrderRepository(), this);
 
         initViewHolders();
     }
@@ -111,7 +115,7 @@ public class RandomActivity extends AppCompatActivity implements RandomView {
     public void randomClick(View view) {
         index = presenter.randomOrder();
 
-        setOrder(orderRopository.getIndex(index).getOrder());
+        setOrder(user.getOrderRepository().getIndex(index).getOrder());
         randomBtn.setVisibility(View.INVISIBLE);
         doBtn.setVisibility(View.VISIBLE);
         giveupBtn.setVisibility(View.VISIBLE);
