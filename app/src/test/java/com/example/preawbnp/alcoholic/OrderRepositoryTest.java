@@ -1,6 +1,7 @@
 package com.example.preawbnp.alcoholic;
 
 import com.example.preawbnp.alcoholic.data.OrderRepository;
+import com.example.preawbnp.alcoholic.data.User;
 import com.example.preawbnp.alcoholic.random.RandomView;
 import com.example.preawbnp.alcoholic.random.RandomPresenter;
 
@@ -51,6 +52,13 @@ public class OrderRepositoryTest {
     public void addCalories() {
         int update = calories + orderRepository.getIndex(0).getCalories();
         assertEquals(170, update);
+    }
+
+    @Test
+    public void getUserOrder0() {
+        User user = new User(orderRepository);
+        String order = user.getOrderRepository().getIndex(0).getOrder();
+        assertEquals("ดื่มโค้กครึ่งแก้ว", order);
     }
 
 }
