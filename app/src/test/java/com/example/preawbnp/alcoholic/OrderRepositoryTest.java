@@ -61,4 +61,11 @@ public class OrderRepositoryTest {
         assertEquals("ดื่มโค้กครึ่งแก้ว", order);
     }
 
+    @Test
+    public void getUserOrder1() {
+        User user = new User(orderRepository);
+        String order = user.getOrderRepository().getIndex(1).getOrder();
+        assertEquals("จ่ายค่าเหล้า 20 บาท", order);
+    }
+
 }
